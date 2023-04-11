@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Files Online P2P</title>
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="Images/icons8-synchronize-pastel-16.png">
+    <link rel="stylesheet" href="Styles/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="header-bar">
+            <h1>P2P File Transfer</h1>
+        </div>
+        <p class="session" id="subtitle">Instructions</p>
+        <i class="session" id="helper-box">
+            Step 1: Send partner your Peer ID, or Enter theirs.
+            <br />
+            Step 2: Once an ID has been entered and 'connect' is pressed, both party's connect button will show green.
+            <br />
+            Step 3: Select a file, and enter an encryption password.
+            <br />
+            Step 4: The receiver will need to enter the password if you set one and click the Decrypt/Download button.
+            <br />
+            <br />
+            Note: Though the files are encrypted, they can still be decrypted using brute force. It is recommended that
+            you use a strong password that you haven't used before anywhere else.
+            <br />
+            <br />
+            <b>Only connect to people you trust.</b> Happy file transferring! ☺
+        </i>
+
+        <h3 id="my-peer-id-label">My Peer ID: </h3>
+
+        <span class="session">
+            <p class="session" id="my-peer-id">My Peer ID: </p><button class="session" id="copy-id">Copy to
+                Clipboard</button>
+        </span>
+
+        <div class="peer-info ">
+            <p id="connected-to" hidden>connected to:</p>
+            <input type="text" id="remote-peer-id" placeholder="Enter Remote Peer ID">
+            <button id="connect-button">Connect</button>
+            <button id="disconnect-button" hidden>Disconnect</button>
+        </div>
+
+        <br /><br />
+        <div class="file-input-wrapper session">
+            <input type="file" id="file-input" disabled>
+            <label for="file-input" id="file-input-label">Select File</label>
+            <label id="filename-of-candidate"></label>
+            <i>2GB Max</i>
+            <br /> <br />
+            <input type="password" id="encryption-password-input" placeholder="Encryption/Decryption password" disabled>
+            <button id="send-button" disabled>Send File</button>
+        </div>
+        <button id="refresh-button" hidden>Refresh</button>
+        <br/>
+        <div class="progress-bar" id="progress-bar">
+            <div id="progress-bar-fill"></div>
+          </div>
+        <br/>
+        <div class="session" id="file-dialogue" hidden>
+            <h2>Received File</h2>
+
+            <i>A basic checksum is performed before showing the files, still, double check with the
+                person you're receiving the files from.</i>
+            </div>
+
+        <div class="session" id="received-files" hidden>
+            
+        </div>
+        <div id="decrypt-controls">
+        <input class="session" type="password" id="decryption-password-input" placeholder="Decryption password"
+                style="display: none;">
+            <button class="session" id="decrypt-button" style="display: none;">Decrypt and Download</button>
+        </div>
+        <footer>
+
+            <div class="footer-content">
+                <br /> <br />
+                <i>&copy; <span id="currentYear"></span> <a href="https://jarrard.xyz" target="_blank">JarrardXyz</a>. All rights reserved.</i>
+                <i>Peer to peer WebRTC functionality using <a href="https://peerjs.com/" target="_blank">PeerJS</a>.</i>
+                <i><a target="_blank" href="https://icons8.com/icon/eE5jJ2CVcpBB/synchronize">Synchronize</a> favicon by
+                    <a target="_blank" href="https://icons8.com">Icons8</a>.</i>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+    <script src="Scripts/script.js"></script>
+
+</body>
+
+</html>
